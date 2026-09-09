@@ -3,6 +3,7 @@ import products from "./data/products";
 import ProductCard from "./components/ProductCard";
 import SearchFilter from "./components/SearchFilter";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -137,6 +138,7 @@ function App() {
   </div>
 </section>
 
+<Footer />
     </div>
   );
 }
