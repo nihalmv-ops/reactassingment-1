@@ -6,6 +6,7 @@ import SearchFilter from "./components/SearchFilter";
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [sortOption, setSortOption] = useState("default");
 
   // Filter products
   const filteredProducts = products.filter((product) => {
@@ -19,6 +20,21 @@ function App() {
 
     return matchesSearch && matchesCategory;
   });
+
+  // Create a copy before sorting
+  const sortedProducts = [...filteredProducts];
+
+  if (sortOption === "price-low") {
+    sortedProducts.sort((a, b) => a.price - b.price);
+  }
+
+  if (sortOption === "price-high") {
+    sortedProducts.sort((a, b) => b.price - a.price);
+  }
+
+  if (sortOption === "rating") {
+    sortedProducts.sort((a, b) => b.rating - a.rating);
+  }
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -36,31 +52,32 @@ function App() {
 
       <main className="mx-auto max-w-7xl px-5 py-10">
 
-        {/* Search and Filter */}
+        {/* Search, Filter and Sort */}
         <SearchFilter
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
+          sortOption={sortOption}
+          setSortOption={setSortOption}
         />
 
         {/* Product Count */}
         <p className="mb-6 text-gray-600">
-          Showing {filteredProducts.length} products
+          Showing {sortedProducts.length} products
         </p>
 
         {/* Products */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {filteredProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-            />
-          ))}
-        </div>
-
-        {/* No Products */}
-        {filteredProducts.length === 0 && (
+        {sortedProducts.length > 0 ? (
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {sortedProducts.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+              />
+            ))}
+          </div>
+        ) : (
           <p className="py-10 text-center text-lg text-gray-500">
             No products found.
           </p>
