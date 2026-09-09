@@ -1,26 +1,9 @@
-import "./App.css";
-import products from "./data/products";
-import ProductCard from "./components/ProductCard";
-
 function App() {
   return (
-    <div>
-      <header className="header">
-        <h1>Product List</h1>
-
-        <p>Find your favorite products</p>
-      </header>
-
-      <main className="product-container">
-        <div className="product-grid">
-          {products.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-            />
-          ))}
-        </div>
-      </main>
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+      <h1 className="text-4xl font-bold text-blue-600">
+        Product List App
+      </h1>
     </div>
   );
 }
