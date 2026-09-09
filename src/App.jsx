@@ -84,6 +84,59 @@ function App() {
         )}
       </main>
 
+      {/* About Section */}
+<section
+  id="about"
+  className="bg-white py-16"
+>
+  <div className="mx-auto max-w-5xl px-5 text-center">
+    
+    <h2 className="text-3xl font-bold text-gray-800">
+      About ShopEasy
+    </h2>
+
+    <p className="mx-auto mt-5 max-w-2xl leading-7 text-gray-600">
+      ShopEasy is a simple product listing application where users can
+      search products, filter by category, and sort products by price
+      and rating.
+    </p>
+
+    <div className="mt-10 grid gap-6 md:grid-cols-3">
+      
+      <div className="rounded-xl bg-gray-100 p-6">
+        <h3 className="text-xl font-semibold text-blue-600">
+          🔍 Search
+        </h3>
+
+        <p className="mt-3 text-gray-600">
+          Quickly find your favorite products.
+        </p>
+      </div>
+
+      <div className="rounded-xl bg-gray-100 p-6">
+        <h3 className="text-xl font-semibold text-blue-600">
+          🏷️ Filter
+        </h3>
+
+        <p className="mt-3 text-gray-600">
+          Filter products by category.
+        </p>
+      </div>
+
+      <div className="rounded-xl bg-gray-100 p-6">
+        <h3 className="text-xl font-semibold text-blue-600">
+          📊 Sort
+        </h3>
+
+        <p className="mt-3 text-gray-600">
+          Sort products by price and rating.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
     </div>
   );
 }
